@@ -1,57 +1,24 @@
 ---
-title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Week 4 worklog"
+date: 2026-07-06
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 4 objectives:
+* Establish the foundational infrastructure for the final project.
+* Apply AWS SAM (IaC) to build APIs and handle data integrity.
 
-### Week 4 Objectives:
+### Tasks to be implemented this week:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+| Day | Task | Start Date | End Date | References |
+| :---: | :--- | :---: | :---: | :--- |
+| Mon - Tue | Project initialization with AWS SAM: <br> - Write the template.yaml configuration for Lambda functions and API Gateway. <br> - Set up DynamoDB tables for storing transaction history and user profiles. | 07/06/2026 | 07/07/2026 | AWS SAM docs |
+| Wed - Thu | Core logic programming: <br> - Code the transaction interceptor function to process POS transactions. <br> - Implement the transact write items feature in DynamoDB to prevent race conditions when deducting balance and adding CO2. | 07/08/2026 | 07/09/2026 | Project requirements |
+| Fri | Security and connection troubleshooting: <br> - Configure IAM policies following the principle of least privilege for Lambda. <br> - Resolve CORS errors when calling the API from a local environment. | 07/10/2026 | 07/10/2026 | AWS IAM docs |
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Week 4 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 4 achievements:
+* Introduced infrastructure as code (IaC) into the project using AWS SAM, enabling fully automated builds and deployments.
+* Successfully solved the race condition issue in financial transactions using DynamoDB's atomic transactions.
+* Completely resolved CORS errors and established secure IAM permissions for the backend system.

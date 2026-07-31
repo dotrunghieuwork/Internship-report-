@@ -1,32 +1,21 @@
 ---
 title : "Clean up"
 date : 2024-01-01
-weight : 6
+weight : 5
 chapter : false
-pre : " <b> 5.6. </b> "
+pre : " <b> 5.5. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
+#### Clean Up Resources
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+Congratulations on successfully completing this lab! 
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+In this lab, you learned how to deploy a modern Serverless architecture for a digital banking project using Infrastructure as Code (IaC). You automated the creation of AWS Lambda, API Gateway, Amazon DynamoDB, and Amazon Cognito with just a few CLI commands.
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+To avoid unexpected charges (exceeding the Free Tier), it is crucial to clean up your infrastructure after you finish. Thanks to AWS SAM, this process is incredibly quick.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+#### Cleanup Steps
 
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
-
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
-
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
-
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+1. **Delete the entire Stack using SAM CLI**
+   Open your Terminal in the directory containing your `template.yaml` file and run the following command:
+   ```bash
+   sam delete

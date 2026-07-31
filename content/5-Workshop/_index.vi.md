@@ -1,33 +1,25 @@
 ---
-title: "Workshop"
+title: "Thực hành triển khai (Workshop)"
 date: 2024-01-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai mô hình Green Banking Serverless (AWS SAM) với NaturEra
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong phần Workshop này, chúng ta sẽ bắt tay vào việc thực hành thiết lập và triển khai toàn bộ hệ thống **Backend Serverless** cho dự án **NaturEra Green Banking**. Thay vì tạo tài nguyên thủ công qua giao diện AWS Console (dễ gây ra sai sót và khó tái sử dụng), chúng ta sẽ áp dụng **Infrastructure as Code (IaC)** với **AWS SAM (Serverless Application Model)**.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Mô hình Serverless sẽ mang đến khả năng mở rộng tự động (auto-scaling), tính toán theo yêu cầu (pay-as-you-go) và đặc biệt là tích hợp tính năng bảo mật mức Enterprise. Kiến trúc này đóng vai trò "xương sống" để kết nối với Frontend React và tính toán lượng CO2 trong thời gian thực (real-time).
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Bạn sẽ được hướng dẫn qua một vòng lặp phát triển hoàn chỉnh: từ khâu khởi tạo dự án, thiết kế cơ sở dữ liệu NoSQL (DynamoDB), viết mã Backend (Lambda), đến việc triển khai các lớp bảo mật API và quản lý tài khoản người dùng với Cognito.
 
-#### Nội dung
+#### Nội dung thực hành
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Giới thiệu về workshop](5.1-Introduction/)
+2. [Chuẩn bị môi trường & Cài đặt công cụ](5.2-Prerequiste/)
+3. [Khởi tạo Backend với AWS SAM CLI](5.3-Backend-setup/)
+4. [Khởi tạo Frontend với React & Vite](5.4-Frontend-setup/)
+5. [Dọn dẹp tài nguyên (Clean up)](5.5-Cleanup/)

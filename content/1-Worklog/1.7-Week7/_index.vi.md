@@ -1,59 +1,24 @@
 ---
-title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+title: "Worklog tuần 7"
+date: 2026-07-27
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 7:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện tài liệu dự án và viết báo cáo tự đánh giá (self-evaluation).
+* Rà soát dự án, dọn dẹp tài nguyên đám mây và nộp báo cáo final workshop.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| 2 - 3 | Viết tài liệu và đánh giá cá nhân: <br> - Viết trang self-evaluation tổng kết các khó khăn gặp phải (như lỗi CORS, xử lý race condition) và cách khắc phục. <br> - Cập nhật file README.md hướng dẫn cài đặt cho mã nguồn backend và frontend. | 27/07/2026 | 28/07/2026 | Bản nháp cá nhân |
+| 4 | Clean-up tài nguyên: <br> - Sử dụng lệnh sam delete để gỡ bỏ toàn bộ stack hạ tầng. <br> - Kiểm tra AWS billing dashboard để chắc chắn không còn tài nguyên nào chạy ngầm phát sinh phí. | 29/07/2026 | 29/07/2026 | Yêu cầu dự án |
+| 5 - 6 | Tổng duyệt và nộp báo cáo: <br> - Hoàn thiện trang web báo cáo bằng Hugo. <br> - Kiểm tra lại toàn bộ link, hình ảnh sơ đồ kiến trúc và mã nguồn. <br> - Nộp báo cáo final workshop lên hệ thống FCAJ. | 30/07/2026 | 31/07/2026 | Hướng dẫn nộp bài |
 
 ### Kết quả đạt được tuần 7:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thành bản tự đánh giá chi tiết, đúc kết được nhiều kinh nghiệm quý báu qua việc xử lý các bug thực tế.
+* Thực hiện đúng quy trình dọn dẹp tài nguyên trên cloud để quản trị chi phí an toàn.
+* Đóng gói và xuất bản thành công trang báo cáo đồ án, chính thức khép lại kỳ thực tập một cách trọn vẹn.

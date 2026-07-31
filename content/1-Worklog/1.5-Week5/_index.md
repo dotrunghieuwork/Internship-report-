@@ -1,57 +1,24 @@
 ---
-title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Week 5 worklog"
+date: 2026-07-13
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 5 objectives:
+* Build an event-driven automation flow using EventBridge.
+* Integrate error handling and user authentication mechanisms.
 
-### Week 5 Objectives:
+### Tasks to be implemented this week:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+| Day | Task | Start Date | End Date | References |
+| :---: | :--- | :---: | :---: | :--- |
+| Mon - Tue | Monthly task automation: <br> - Configure Amazon EventBridge to trigger a lambda function at 00:00 on the first day of every month. <br> - Write logic to scan users exceeding the CO2 limit to reward trees or unlock cards. | 07/13/2026 | 07/14/2026 | Project requirements |
+| Wed - Thu | Error handling setup: <br> - Create an Amazon SQS queue. <br> - Configure SQS as a dead-letter queue (DLQ) to catch failed events from the batch job function. | 07/15/2026 | 07/16/2026 | AWS SQS docs |
+| Fri | Authentication integration: <br> - Provision an Amazon Cognito user pool. <br> - Attach a cognito authorizer to API Gateway to protect internal endpoints. | 07/17/2026 | 07/17/2026 | AWS Cognito docs |
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Week 5 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 5 achievements:
+* Successfully built an event-driven architecture, allowing the system to run background tasks automatically without consuming 24/7 server resources.
+* Ensured system reliability by capturing and storing failed requests via SQS DLQ.
+* Successfully secured API endpoints, preventing unauthorized access using Cognito.

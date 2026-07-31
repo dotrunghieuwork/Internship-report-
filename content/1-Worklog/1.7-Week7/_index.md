@@ -1,57 +1,24 @@
 ---
-title: "Week 7 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Week 7 worklog"
+date: 2026-07-27
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 7 objectives:
+* Finalize project documentation and write the self-evaluation report.
+* Review the project, clean up cloud resources, and submit the final workshop report.
 
-### Week 7 Objectives:
+### Tasks to be implemented this week:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+| Day | Task | Start Date | End Date | References |
+| :---: | :--- | :---: | :---: | :--- |
+| Mon - Tue | Documentation and self-evaluation: <br> - Write the self-evaluation page summarizing challenges faced (like CORS, race condition) and solutions. <br> - Update the README.md files for both backend and frontend source code. | 07/27/2026 | 07/28/2026 | Personal drafts |
+| Wed | Resource clean-up: <br> - Use the sam delete command to remove the entire infrastructure stack. <br> - Check the AWS billing dashboard to ensure no hidden resources are incurring costs. | 07/29/2026 | 07/29/2026 | Project requirements |
+| Thu - Fri | Final review and submission: <br> - Finalize the report website using Hugo. <br> - Double-check all links, architecture diagram images, and source code. <br> - Submit the final workshop report to the FCAJ system. | 07/30/2026 | 07/31/2026 | Submission guidelines |
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Week 7 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 7 achievements:
+* Completed a detailed self-evaluation, gaining valuable practical experience by resolving real-world bugs.
+* Properly executed the cloud resource cleanup process for safe cost management.
+* Successfully packaged and published the project report website, officially wrapping up a fulfilling internship.

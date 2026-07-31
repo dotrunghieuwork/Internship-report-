@@ -1,57 +1,26 @@
 ---
-title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Week 2 worklog"
+date: 2026-06-22
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 2 objectives:
+* Complete the competency assessment test to receive $200 AWS credits from the program.
+* Install, configure, and proficiently use AWS CLI on the local machine.
+* Grasp the concepts and practice identity and access management (IAM).
 
-### Week 2 Objectives:
+### Tasks to be implemented this week:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+| Day | Task | Start Date | End Date | References |
+| :---: | :--- | :---: | :---: | :--- |
+| Mon - Tue | Knowledge review and testing: <br> - Review the AWS cloud practitioner knowledge learned in week 1. <br> - Take the internship program's test to receive $200 AWS credits. <br> - Redeem and activate the credit code into the personal AWS account. | 06/22/2026 | 06/23/2026 | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Wed - Thu | AWS CLI setup and IAM practice: <br> - Install AWS CLI and configure access key, secret key. <br> - Practice creating IAM users, groups, and attaching policies via the web console. <br> - Use CLI commands to verify user identity and permissions. | 06/24/2026 | 06/25/2026 | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Fri | Basic virtual server provisioning: <br> - Use AWS CLI to launch an EC2 instance. <br> - Configure security groups to allow port 22 access. <br> - Connect to the newly created virtual server via SSH for verification. | 06/26/2026 | 06/26/2026 | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
-### Week 2 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 2 achievements:
+* Successfully completed the test and received $200 credits to fund paid service practices.
+* Proficiently used AWS CLI to interact with cloud resources instead of relying solely on the web interface.
+* Mastered the principle of least privilege when working with AWS IAM.
+* Knew how to provision, configure basic security, and successfully connect to a remote EC2 virtual server.

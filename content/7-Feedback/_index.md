@@ -1,47 +1,33 @@
 ---
-title: "Sharing and Feedback"
-date: 2024-01-01
+title: "Feedback & Contributions"
+date: 2026-07-30
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+### General Assessment
 
-### Overall Evaluation
+**1. Working & Learning Environment** 
+The environment is highly practical and agile. Being exposed to the real AWS ecosystem from the early stages helped me quickly adopt a Cloud-Native mindset. Despite the occasional pressure of dealing with stubborn system errors, FCAJ's open communication space kept me focused and motivated to troubleshoot problems thoroughly.
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+**2. Support from Mentors / Team Admins** 
+I am particularly impressed by the mentoring style: rather than spoon-feeding solutions, the mentors always analyzed the root cause of the problems (e.g., reading CloudWatch logs, understanding CORS Preflight mechanisms, or Cognito authorization flows). Their enthusiasm and ability to break down complex technical logic into digestible concepts were instrumental in unblocking my project.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**3. Alignment with Academic Major** 
+Designing and deploying a complete Data Pipeline architecture (from a ReactJS Frontend through API Gateway, Lambda, and finally persisting in DynamoDB) directly complements my Computer Science background. Furthermore, the mindset required to structure data and ensure smooth transaction flows serves as a perfect stepping stone for my future career goals in Data Engineering and Data Analysis.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**4. Opportunities for Learning & Skill Development** 
+The program provided a massive amount of knowledge. I learned everything from setting up secure Auth systems. Most importantly, I significantly sharpened my "Troubleshooting" skills—a survival trait.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**5. Culture & Team Spirit** 
+The culture of knowledge sharing is robust. Participants are not afraid to share their mistakes, bringing bugs to the table for open discussion. The collaborative spirit in resolving End-to-End issues made me feel highly engaged and allowed me to learn diverse perspectives from my peers.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+**6. Policies / Benefits** 
+Providing a hands-on account with a sensible credit limit ($200) is a major plus. It not only allowed me to use live services but also taught me how to monitor resources and optimize Cloud costs—a skill highly valued by enterprises.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
 
----
+### Suggestions & Desires
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
-
----
-
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+*   **Future desires:** I highly desire to continue participating in future FCAJ initiatives, particularly advanced projects related to Data Pipelines and Big Data analytics.

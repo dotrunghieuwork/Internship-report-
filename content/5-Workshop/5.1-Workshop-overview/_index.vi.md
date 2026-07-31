@@ -6,14 +6,76 @@ chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+#### Giới thiệu về NaturEra Green Banking
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+**NaturEra** là module Green Banking mở rộng trên nền tảng AWS Serverless, tích hợp vào luồng giao dịch POS của ngân hàng. Mỗi lần khách hàng quẹt thẻ, hệ thống tự động:
+
+1. Tra cứu hệ số phát thải theo mã **MCC** của merchant
+2. Tính lượng **CO₂** tương ứng với số tiền giao dịch
+3. Trừ tiền + ghi lịch sử giao dịch + cộng dồn CO₂ tháng trong **một lệnh atomic** (`TransactWriteItems`)
+4. Khóa thẻ ngay khi vượt hạn mức carbon tháng (giao dịch vượt ngưỡng vẫn được phép; giao dịch tiếp theo bị chặn)
+
+Khách hàng theo dõi hồ sơ môi trường và biểu đồ carbon qua web app; nhân viên ngân hàng (role ADMIN) cập nhật hệ số CO₂ / mapping MCC mà không cần deploy lại hệ thống. Cuối mỗi tháng, job batch tự động mở khóa thẻ và xét thưởng cho người dùng phát thải thấp.
+
+{{% notice info %}}
+Workshop này hướng dẫn bạn **triển khai MVP NaturEra** (backend SAM + frontend React/Vite), seed dữ liệu demo, gọi API giao dịch POS và dọn dẹp tài nguyên sau lab.
+{{% /notice %}}
 
 #### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+Trong workshop, bạn sẽ:
+
++ Triển khai stack serverless bằng **AWS SAM** (Lambda, API Gateway, DynamoDB, Cognito, EventBridge, S3, CloudFront)
++ Cấu hình frontend React/Vite kết nối Cognito + API Gateway
++ Giả lập giao dịch quẹt thẻ POS (`POST /v1/transactions` với `x-api-key`)
++ Kiểm tra cộng dồn CO₂, khóa thẻ real-time và dữ liệu trên DynamoDB / Dashboard
+
+<img src="/images/5-Workshop/5.1-Workshop-overview/naturera_architecture.jpg" width="80%" />
+
+#### Tóm tắt kiến trúc
+
+Nền tảng áp dụng kiến trúc **AWS-native serverless** hoàn toàn:
+
+| Thành phần | Vai trò trong workshop |
+| :--- | :--- |
+| **Amazon Cognito** | User Pool + App Client; JWT authorizer cho API khách hàng / admin (`custom:role`) |
+| **Amazon API Gateway** | REST API stage `v1`; Cognito Authorizer (mặc định) + API Key cho endpoint POS |
+| **AWS Lambda** | 5 hàm core xử lý nghiệp vụ (xem bảng bên dưới) |
+| **Amazon DynamoDB** | Single-table `NaturEraGreenBankingTable` + 2 GSI (`StatMonthIndex`, `LockedCardIndex`) |
+| **Amazon EventBridge** | Lịch cron ngày 1 hàng tháng kích hoạt Monthly Offset Batch |
+| **Amazon S3 + CloudFront** | Host frontend tĩnh (React/Vite build) qua OAC |
+| **AWS SAM / CloudFormation** | Đóng gói và triển khai toàn bộ stack |
+
+**Luồng nghiệp vụ chính (POS → carbon):**
+
+```
+POS Simulator  --(x-api-key)-->  API Gateway  -->  TransactionInterceptor Lambda
+                                                        │
+                                                        ▼
+                                              DynamoDB TransactWriteItems
+                                              (PROFILE + CARD check + TXN + STAT)
+                                                        │
+                                              nếu CO₂ >= quota → LOCK card
+```
+
+**Các quyết định kiến trúc đáng nhớ (ADR):**
+
++ **ADR-001** — Core Banking ghi atomic bằng `TransactWriteItems` (không dùng Saga/Step Functions)
++ **ADR-002** — IAM least-privilege: không cấp `dynamodb:Scan`; truy vấn nhiều user qua GSI + `Query`
++ **ADR-003** — Khóa thẻ real-time khi vượt hạn mức (giọt nước tràn ly: giao dịch vượt ngưỡng vẫn thành công)
+
+Backend tổ chức **4 lớp**: `functions/` → `services/` → `repositories/` → `models/` + `utils/` + `configs/`.
+
+#### Các hàm Lambda core
+
+| Lambda | Trigger / Route | Chức năng |
+| :--- | :--- | :--- |
+| **TransactionInterceptor** | `POST /v1/transactions` (Auth: **NONE** + **API Key**) | Nhận giao dịch POS, tính CO₂ theo MCC, trừ tiền + ghi log + cộng dồn STAT trong 1 `TransactWriteItems`; khóa thẻ nếu vượt quota |
+| **DashboardApi** | `GET /v1/dashboard` (Cognito) | Trả thống kê carbon tháng + giao dịch gần nhất cho UI khách hàng |
+| **GreenProfileCardApi** | `GET /v1/profile/{requestId}` (Cognito) | Xem hồ sơ môi trường / trạng thái thẻ; phân quyền theo `custom:role` |
+| **AdminRuleConfigApi** | `GET\|PUT /v1/admin/config/co2-rules`<br>`GET\|PUT /v1/admin/config/mcc-mapping` (Cognito + role ADMIN) | Đọc/cập nhật hệ số CO₂ và từ điển mapping MCC (`CONFIG#*`) không cần redeploy |
+| **MonthlyOffsetBatch** | EventBridge `cron(0 0 1 * ? *)` | Đầu tháng: mở khóa toàn bộ thẻ LOCKED + xét thưởng user dưới ngưỡng `REWARD_THRESHOLD` (Query GSI, không Scan) |
+
+{{% notice tip %}}
+Endpoint POS dùng **API Key** (máy-to-máy), còn Dashboard / Profile / Admin dùng **JWT Cognito**. Đây là điểm cần nắm khi test API ở phần sau của workshop.
+{{% /notice %}}

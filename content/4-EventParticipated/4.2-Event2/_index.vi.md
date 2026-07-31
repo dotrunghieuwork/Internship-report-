@@ -1,125 +1,46 @@
 ---
-title: "Event 2"
-date: 2024-01-01
-weight: 1
+title: "Event 2: Agentic AI Build Week & Hackathon Showcase"
+date: 2026-07-25
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+### Mục tiêu sự kiện (Event Objectives)
+* Thúc đẩy cộng đồng phát triển Trí tuệ nhân tạo tác tử (Agentic AI) và ứng dụng thực tiễn trên nền tảng AWS.
+* Trình diễn các giải pháp công nghệ xuất sắc bước ra từ cuộc thi Hackathon 24 giờ.
+* Kết nối mạng lưới chuyên gia AWS, chia sẻ kinh nghiệm xây dựng MVP (Minimum Viable Product), tối ưu chi phí và triển khai hệ thống chịu tải cao.
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+### Các đội thi và dự án tiêu biểu (Featured Teams & Projects)
+* **Team AI-Powered Conversation Ordering** *(Anh Duy, Trần Đông, v.v.)*: Giải pháp KFC Bot Agent xử lý đơn hàng bằng ngôn ngữ tự nhiên.
+* **Team SA Professional Native App** *(Thuận Phát, Hoàng Long, v.v.)*: Ứng dụng AI tự động hóa thiết kế kiến trúc AWS và sinh mã IaC.
+* **Team Signal Scout** *(Tấn Lực, Hoàng Hiếu, v.v.)*: Nền tảng AI giám sát tín hiệu doanh nghiệp và tự động hóa CI/CD.
+* **Team Hackathon Journey** *(An Khương, Quốc Huy, v.v.)*: Dự án S.H.E.P.H.E.R.D giám sát đám đông, đúc kết kinh nghiệm làm việc nhóm dưới áp lực cao.
 
-### Mục Đích Của Sự Kiện
+### Những điểm nhấn quan trọng (Key Highlights)
+* **Tự động hóa thiết kế hạ tầng (IaC):** Dự án SA Professional Native App gây ấn tượng mạnh khi sử dụng AI để thay thế các bước thủ công trong việc thu thập yêu cầu, vẽ sơ đồ kiến trúc và tự động sinh ra mã cơ sở hạ tầng (Infrastructure as Code), giúp tiết kiệm hàng chục giờ làm việc.
+* **Tối ưu chi phí và Observability:** Đội Signal Scout mang đến bài toán thực tế về Service Discovery và giám sát hệ thống. Họ trình bày chi tiết về chi phí vận hành các dịch vụ AWS và cách kết hợp với các tool bên thứ 3 (LangFuse, Apify) để giảm thiểu phí duy trì hệ thống.
+* **Độ chính xác của Agent:** Thông qua KFC Bot, sự kiện nhấn mạnh vào ranh giới giữa việc AI "hiểu" ngôn ngữ tự nhiên và việc AI "áp dụng đúng quy tắc kinh doanh" (business rules) để xác nhận đơn hàng mà không gây thất thoát tài chính.
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+### Bài học đúc kết (Key Takeaways)
+* **Tư duy xây dựng MVP (Minimum Viable Product):** Trong khuôn khổ 24 giờ của Hackathon, các đội thi không cố gắng làm mọi thứ. Họ tập trung vào luồng tính năng cốt lõi nhất để chứng minh giải pháp hoạt động được, sau đó mới tính đến việc mở rộng.
+* **Chiến lược quản trị chi phí Cloud:** Triển khai AI hay Serverless không chỉ là bài toán công nghệ, mà là bài toán kinh tế. Việc tính toán và dự báo chi phí (Cost Estimation) ngay từ bước thiết kế kiến trúc là bắt buộc.
+* **Sức mạnh của làm việc nhóm:** Áp lực thời gian đòi hỏi sự phân chia rành mạch giữa người lo hạ tầng Cloud, người lo tích hợp AI và người chuẩn bị pitching.
 
-### Danh Sách Diễn Giả
+### Ứng dụng vào thực tế (Applying to Work)
+* **Cấu hình IaC cho dự án Serverless:** Lấy cảm hứng từ ý tưởng sinh mã hạ tầng của dự án SA Native App, tôi đã chủ động loại bỏ việc thao tác thủ công trên AWS Console. Thay vào đó, toàn bộ hạ tầng dự án **NaturEra Green Banking** được tôi đóng gói hoàn toàn thông qua file `template.yaml` của công cụ AWS SAM, đảm bảo khả năng triển khai nhất quán và tự động.
+* **Tối ưu chi phí hạ tầng Green Banking:** Áp dụng tư duy phân tích chi phí từ đội Signal Scout, tôi đã thiết kế các bảng DynamoDB ở chế độ *On-Demand* và thiết lập mức dung lượng bộ nhớ phù hợp cho các hàm Lambda, giúp hệ thống tận dụng tối đa gói AWS Free Tier mà vẫn đảm bảo hiệu suất.
+* **Quy trình phát triển tinh gọn:** Học hỏi tinh thần Hackathon, nhóm chúng tôi quyết định dồn toàn lực xử lý triệt để luồng API cốt lõi (luồng TransactWriteItems trừ tiền và cộng tín chỉ carbon) trước khi rẽ nhánh sang làm các tính năng phụ như EventBridge hay Cognito.
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### Trải nghiệm sự kiện (Event Experience)
+Được trực tiếp lắng nghe các kỹ sư trình bày thành quả sau 24 giờ code liên tục là một trải nghiệm cực kỳ truyền cảm hứng.
+* **Khả năng giải quyết vấn đề:** Những khó khăn mà các đội gặp phải (lỗi phân quyền IAM, cấu hình sai bộ nhớ, tích hợp AI bị timeout) cũng chính là những lỗi tôi gặp phải khi làm đồ án. Việc nghe họ trình bày cách "Troubleshooting" giúp tôi có thêm rất nhiều góc nhìn mới.
+* **Kỹ năng Pitching:** Không chỉ code giỏi, cách các đội truyền đạt ý tưởng, mô tả luồng Architecture một cách trực quan trước hội đồng giám khảo là kỹ năng mềm cực kỳ quý giá mà tôi học hỏi được để chuẩn bị cho buổi bảo vệ Workshop cuối kỳ.
 
-### Nội Dung Nổi Bật
+### Tổng kết (Lessons Learned)
+* Kiến trúc Cloud tốt nhất không phải là kiến trúc dùng nhiều công nghệ xịn nhất, mà là kiến trúc giải quyết được bài toán kinh doanh với chi phí vận hành tối ưu nhất.
+* Kỹ năng làm việc nhóm và giao tiếp (khớp nối API, phân chia resource) quyết định 80% sự sống còn của dự án khi đối mặt với Deadline ngắn.
+* Việc áp dụng Infrastructure as Code (IaC) là xu hướng tất yếu mà bất kỳ kỹ sư hệ thống nào cũng phải nắm vững để không bị tụt hậu.
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
-
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
-
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
-
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
-
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
-
-#### Domain-Driven Design (DDD)
-
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
-
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+### Hình ảnh tham gia
+<img src="/images/4-EventParticipated/day25.jpg" width="80%" />
