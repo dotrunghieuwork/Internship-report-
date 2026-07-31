@@ -33,7 +33,7 @@ Instead of renting an expensive server (EC2) just to host a web interface, we wi
 4. **Block Public Access settings for this bucket**: Ensure the *Block all public access* option is **CHECKED** (Turned ON). (We will use CloudFront OAC for access instead of making it public).
 5. Scroll down to the bottom and click **Create bucket**.
 
-> > <img src="/images/5-Workshop/5.5-hosting/s3.png" width="80%" />
+> > <img src="/Internship-report-/images/5-Workshop/5.5-hosting/s3.png" width="80%" />
 
 ---
 

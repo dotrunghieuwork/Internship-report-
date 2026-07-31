@@ -54,7 +54,7 @@ This process takes about 1-2 minutes:
 npm install
 ```
 
-<img src="/images/5-Workshop/5.4-FrontEnd/2-npm.png" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.4-FrontEnd/2-npm.png" width="80%" />
 
 ---
 
@@ -80,7 +80,7 @@ VITE_POS_API_KEY=<your-api-key>
 
 > ⚠️ **Note:** Do not leave these fields blank, otherwise the interface will return a 404 error or fail to log in.
 
-> <img src="/images/5-Workshop/5.4-FrontEnd/3-env.png" width="80%" />
+> <img src="/Internship-report-/images/5-Workshop/5.4-FrontEnd/3-env.png" width="80%" />
 
 ---
 
@@ -94,5 +94,5 @@ npm run dev
 
 The terminal will display a local link (usually `http://localhost:5173`). Press `Ctrl + Click` (or `Cmd + Click` on Mac) on that link to open the NaturEra Green Banking interface in your browser and start exploring!
 
-<img src="/images/5-Workshop/5.4-FrontEnd/4-login.png" width="80%" />
-<img src="/images/5-Workshop/5.4-FrontEnd/5-web.png" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.4-FrontEnd/4-login.png" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.4-FrontEnd/5-web.png" width="80%" />

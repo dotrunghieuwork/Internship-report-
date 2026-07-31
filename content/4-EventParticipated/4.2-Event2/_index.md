@@ -43,4 +43,4 @@ Listening directly to engineers present their results after 24 continuous hours 
 * Adopting Infrastructure as Code (IaC) is an inevitable trend that every system engineer must master to avoid falling behind.
 
 ### Event Photos
-<img src="/images/4-EventParticipated/day25.jpg" width="80%" />
+<img src="/Internship-report-/images/4-EventParticipated/day25.jpg" width="80%" />

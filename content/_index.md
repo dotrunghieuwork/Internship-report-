@@ -29,7 +29,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 15/06/2026 to 31/07/2026
 
-> <img src="/images/5-Workshop/5.5-hosting/avatar.jpg" width="80%" />
+> <img src="/Internship-report-/images/5-Workshop/5.5-hosting/avatar.jpg" width="80%" />
 
 ### Report Content
 

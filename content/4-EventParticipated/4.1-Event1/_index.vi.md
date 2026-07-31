@@ -43,4 +43,4 @@ Tham gia sự kiện này mang lại cho tôi những cú "twist" thay đổi ho
 * Chứng chỉ AWS không chỉ là một danh hiệu, mà là khung tiêu chuẩn ép bản thân phải học hỏi kiến trúc Cloud một cách khoa học, bài bản nhất.
 
 ### Hình ảnh tham gia
-<img src="/images/4-EventParticipated/day20.jpg" width="80%" />
+<img src="/Internship-report-/images/4-EventParticipated/day20.jpg" width="80%" />

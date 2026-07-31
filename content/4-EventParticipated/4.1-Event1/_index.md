@@ -43,4 +43,4 @@ Attending this event provided me with insights that completely shifted my mindse
 * An AWS certification is not just a badge; it is a standardization framework that forces you to learn Cloud architecture in the most scientific and methodical way.
 
 ### Event Photos
-<img src="/images/4-EventParticipated/day20.jpg" width="80%" />
+<img src="/Internship-report-/images/4-EventParticipated/day20.jpg" width="80%" />

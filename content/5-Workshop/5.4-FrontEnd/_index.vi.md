@@ -55,7 +55,7 @@ Quá trình này mất khoảng 1-2 phút:
 npm install
 ```
 
-<img src="/images/5-Workshop/5.5-FrontEnd/2-npm.png" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.5-FrontEnd/2-npm.png" width="80%" />
 
 ---
 
@@ -81,7 +81,7 @@ VITE_POS_API_KEY=<nhập-mã-api-key>
 
 > ⚠️ **Lưu ý:** Bạn không được để trống các trường này, nếu không giao diện sẽ báo lỗi 404 hoặc không thể đăng nhập.
 
-> <img src="/images/5-Workshop/5.5-FrontEnd/3-env.png" width="80%" />
+> <img src="/Internship-report-/images/5-Workshop/5.5-FrontEnd/3-env.png" width="80%" />
 
 ---
 
@@ -95,5 +95,5 @@ npm run dev
 
 Terminal sẽ hiển thị đường dẫn (thường là `http://localhost:5173`). Bạn bấm `Ctrl + Click` (hoặc `Cmd + Click` trên Mac) vào đường link đó để mở giao diện NaturEra Green Banking trên trình duyệt và bắt đầu trải nghiệm!
 
-<img src="/images/5-Workshop/5.5-FrontEnd/4-login.png" width="80%" />
-<img src="/images/5-Workshop/5.5-FrontEnd/5-web.png" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.5-FrontEnd/4-login.png" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.5-FrontEnd/5-web.png" width="80%" />

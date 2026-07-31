@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 15/06/2026 đến ngày 31/07/2026
 
-> <img src="/images/5-Workshop/5.5-hosting/avatar.jpg" width="80%" />
+> <img src="/Internship-report-/images/5-Workshop/5.5-hosting/avatar.jpg" width="80%" />
 
 
 

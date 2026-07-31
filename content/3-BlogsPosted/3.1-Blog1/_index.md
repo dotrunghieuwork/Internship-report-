@@ -42,4 +42,4 @@ Our team applied a combination of two DynamoDB mechanisms:
 ### Conclusion
 This project has provided our team with a much more practical perspective on how to securely manage data in the Cloud. Thank you all for reading, and we look forward to hearing your insights or suggestions on how you handle transaction flows in other architectures.
 
-<img src="/images/3-BlogsPosted/Blog.png" width="80%" />
+<img src="/Internship-report-/images/3-BlogsPosted/Blog.png" width="80%" />

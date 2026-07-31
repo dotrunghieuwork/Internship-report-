@@ -40,7 +40,7 @@ kiểm tra thẻ khóa trong 1 lệnh TransactWriteItems atomic duy nhất (SLA 
 
 <!-- ![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg) -->
 
-<img src="/images/5-Workshop/5.1-Workshop-overview/naturera_architecture.jpg" width="80%" />
+<img src="/Internship-report-/images/5-Workshop/5.1-Workshop-overview/naturera_architecture.jpg" width="80%" />
 
 
 ### 4. Triển khai kỹ thuật  

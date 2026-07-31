@@ -42,4 +42,4 @@ Nhóm mình áp dụng kết hợp hai cơ chế của DynamoDB:
 ### Kết luận
 Project lần này mang lại cho nhóm một góc nhìn thực tế hơn rất nhiều về cách quản lý dữ liệu an toàn trên Cloud. Cảm ơn mọi người đã đọc bài viết, rất mong nhận được thêm chia sẻ hoặc góp ý từ các bạn về cách xử lý luồng giao dịch ở các kiến trúc khác.
 
-<img src="/images/3-BlogsPosted/Blog.png" width="80%" />
+<img src="/Internship-report-/images/3-BlogsPosted/Blog.png" width="80%" />

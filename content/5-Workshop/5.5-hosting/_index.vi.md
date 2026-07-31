@@ -33,7 +33,7 @@ Thay vì thuê một máy chủ (EC2) đắt đỏ chỉ để chạy giao diệ
 4. **Block Public Access settings for this bucket**: Đảm bảo **BẬT (Check)** dòng *Block all public access*. (Chúng ta sẽ dùng OAC của CloudFront để truy cập thay vì mở public).
 5. Cuộn xuống cuối và nhấn **Create bucket**.
 
-> <img src="/images/5-Workshop/5.5-hosting/s3.png" width="80%" />
+> <img src="/Internship-report-/images/5-Workshop/5.5-hosting/s3.png" width="80%" />
 
 
 ---
