@@ -67,11 +67,11 @@ Cấu trúc chính bạn sẽ dùng trong lab:
 
 ```
 naturEra-green-banking-web/
-├── apps/web/          # Frontend React + Vite + TailwindCSS
-└── backend/           # SAM template + Lambda (Node.js ESM)
-    ├── template.yaml
-    ├── scripts/seed-data.js
-    └── src/functions/ # 5 Lambda core
++-- apps/web/          # Frontend React + Vite + TailwindCSS
+\-- backend/           # SAM template + Lambda (Node.js ESM)
+    +-- template.yaml
+    +-- scripts/seed-data.js
+    \-- src/functions/ # 5 Lambda core
 ```
 
 #### Cấu hình AWS CLI

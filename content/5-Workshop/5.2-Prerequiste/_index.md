@@ -67,11 +67,11 @@ Main layout used in the lab:
 
 ```
 naturEra-green-banking-web/
-├── apps/web/          # React + Vite + TailwindCSS frontend
-└── backend/           # SAM template + Lambda (Node.js ESM)
-    ├── template.yaml
-    ├── scripts/seed-data.js
-    └── src/functions/ # 5 core Lambdas
++-- apps/web/          # React + Vite + TailwindCSS frontend
+\-- backend/           # SAM template + Lambda (Node.js ESM)
+    +-- template.yaml
+    +-- scripts/seed-data.js
+    \-- src/functions/ # 5 core Lambdas
 ```
 
 #### Configure AWS CLI

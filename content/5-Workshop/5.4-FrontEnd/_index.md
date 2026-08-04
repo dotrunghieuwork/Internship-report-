@@ -18,21 +18,21 @@ The project uses a Monorepo architecture with **React combined with Vite** to op
 
 ```text
 naturEra-green-banking-web/
-  ├── apps/
-  |   └── web/                # Main directory containing the Frontend part
-  |       ├── public/         # General static files
-  |       ├── src/            # Directory containing all React source code
-  |       |   ├── assets/     # Static images (hero.png, react.svg, vite.svg)
-  |       |   ├── apiService.js # Handles API calls (fetch/axios) to Backend
-  |       |   ├── App.jsx     # Root component containing the main layout
-  |       |   ├── config.js   # Project configuration parameters
-  |       |   ├── index.css   # Global CSS formatting file
-  |       |   └── main.jsx    # Entry point to launch the React application
-  |       ├── .env.local      # Local environment variable configuration file
-  |       ├── index.html      # Root HTML file of the Vite application
-  |       ├── package.json    # List of dependencies for the application
-  |       └── vite.config.js  # Vite bundling configuration
-  └── package.json            # General dependencies configuration for the whole project
+  +-- apps/
+  |   \-- web/                # Main directory containing the Frontend part
+  |       +-- public/         # General static files
+  |       +-- src/            # Directory containing all React source code
+  |       |   +-- assets/     # Static images (hero.png, react.svg, vite.svg)
+  |       |   +-- apiService.js # Handles API calls (fetch/axios) to Backend
+  |       |   +-- App.jsx     # Root component containing the main layout
+  |       |   +-- config.js   # Project configuration parameters
+  |       |   +-- index.css   # Global CSS formatting file
+  |       |   \-- main.jsx    # Entry point to launch the React application
+  |       +-- .env.local      # Local environment variable configuration file
+  |       +-- index.html      # Root HTML file of the Vite application
+  |       +-- package.json    # List of dependencies for the application
+  |       \-- vite.config.js  # Vite bundling configuration
+  \-- package.json            # General dependencies configuration for the whole project
 ```
 
 ---
