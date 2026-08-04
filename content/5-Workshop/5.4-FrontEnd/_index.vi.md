@@ -18,21 +18,21 @@ Dự án sử dụng kiến trúc Monorepo với **React kết hợp Vite** đ�
 
 ```text
 naturEra-green-banking-web/
-  ├── apps/
-  |   └── web/                  # Thư mục chính chứa phần Frontend
-  |       ├── public/           # Chứa các file tĩnh chung
-  |       ├── src/              # Thư mục chứa toàn bộ mã nguồn React
-  |       |   ├── assets/       # Hình ảnh tĩnh (hero.png, react.svg, vite.svg)
-  |       |   ├── apiService.js # Nơi xử lý gọi API (fetch/axios) tới Backend
-  |       |   ├── App.jsx       # Root component, chứa khung giao diện chính
-  |       |   ├── config.js     # Chứa các thông số cấu hình dự án
-  |       |   ├── index.css     # File định dạng CSS toàn cục
-  |       |   └── main.jsx      # Entry point khởi chạy ứng dụng React
-  |       ├── .env.local        # File cấu hình biến môi trường tại máy local
-  |       ├── index.html        # File HTML gốc của ứng dụng Vite
-  |       ├── package.json      # Danh sách thư viện (Dependencies) của ứng dụng
-  |       └── vite.config.js    # Cấu hình đóng gói Vite
-  └── package.json              # Cấu hình dependencies chung của toàn dự án
+  +-- apps/
+  |   \-- web/                  # Thư mục chính chứa phần Frontend
+  |       +-- public/           # Chứa các file tĩnh chung
+  |       +-- src/              # Thư mục chứa toàn bộ mã nguồn React
+  |       |   +-- assets/       # Hình ảnh tĩnh (hero.png, react.svg, vite.svg)
+  |       |   +-- apiService.js # Nơi xử lý gọi API (fetch/axios) tới Backend
+  |       |   +-- App.jsx       # Root component, chứa khung giao diện chính
+  |       |   +-- config.js     # Chứa các thông số cấu hình dự án
+  |       |   +-- index.css     # File định dạng CSS toàn cục
+  |       |   \-- main.jsx      # Entry point khởi chạy ứng dụng React
+  |       +-- .env.local        # File cấu hình biến môi trường tại máy local
+  |       +-- index.html        # File HTML gốc của ứng dụng Vite
+  |       +-- package.json      # Danh sách thư viện (Dependencies) của ứng dụng
+  |       \-- vite.config.js    # Cấu hình đóng gói Vite
+  \-- package.json              # Cấu hình dependencies chung của toàn dự án
 ```
 
 

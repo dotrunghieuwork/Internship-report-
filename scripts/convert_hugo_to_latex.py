@@ -687,6 +687,7 @@ def convert_to_latex(md_text, source_path=None):
             subprocess.run(
                 [
                     "pandoc",
+                    "--no-highlight",
                     tmp_in,
                     "-f", "markdown+raw_tex+fenced_divs+bracketed_spans",
                     "-t", "latex",

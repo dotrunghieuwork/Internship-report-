@@ -10,20 +10,20 @@ pre : " <b> 5.3. </b> "
 
 ```bash
 naturera-green-banking-backend/
-├── events/                   # Contains .json files simulating requests for local testing
-├── functions/                # Handler Layer (Entrypoints)
-|   ├── dashboard/            # Lambda: Handles GET /dashboard API
-|   ├── get-profile/          # Lambda: Handles GET /profile API
-|   └── process-transaction/  # Lambda: Handles POST /transactions API
-├── src/                      # Business Logic & Database Layer (Shared)
-|   ├── configs/              # Environment configurations, constants
-|   ├── models/               # Data structure definitions
-|   ├── repositories/         # DynamoDB communication layer (Data Access)
-|   ├── services/             # Business logic layer (Calculate CO2 points, deduct balance...)
-|   └── utils/                # Helper functions (Format response, CORS...)
-├── scripts/                  # Contains script files (e.g., seed-data.js)
-├── template.yaml             # The heart of SAM: Defines the entire AWS infrastructure
-└── package.json              # Library management (aws-sdk, uuid...)
++-- events/                   # Contains .json files simulating requests for local testing
++-- functions/                # Handler Layer (Entrypoints)
+|   +-- dashboard/            # Lambda: Handles GET /dashboard API
+|   +-- get-profile/          # Lambda: Handles GET /profile API
+|   \-- process-transaction/  # Lambda: Handles POST /transactions API
++-- src/                      # Business Logic & Database Layer (Shared)
+|   +-- configs/              # Environment configurations, constants
+|   +-- models/               # Data structure definitions
+|   +-- repositories/         # DynamoDB communication layer (Data Access)
+|   +-- services/             # Business logic layer (Calculate CO2 points, deduct balance...)
+|   \-- utils/                # Helper functions (Format response, CORS...)
++-- scripts/                  # Contains script files (e.g., seed-data.js)
++-- template.yaml             # The heart of SAM: Defines the entire AWS infrastructure
+\-- package.json              # Library management (aws-sdk, uuid...)
 ```
 ## Using SAM CLI to initialize backend
 
