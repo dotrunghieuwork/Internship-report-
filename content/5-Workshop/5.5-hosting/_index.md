@@ -50,7 +50,7 @@ Now that we have a storage location, we need a CDN "front door" to distribute th
 5. **Web Application Firewall (WAF)**: Select *Do not enable security protections* (to save costs for the Dev environment).
 6. Click **Create distribution**.
 
-> ⚠️ **IMPORTANT:** After creation, CloudFront will display a yellow warning asking you to update the S3 Bucket Policy. Click **Copy policy**, go back to your S3 Bucket → *Permissions* tab → *Bucket Policy* → Paste the JSON block there and save. If you skip this step, CloudFront will throw a 403 Access Denied error.
+> **IMPORTANT:** After creation, CloudFront will display a yellow warning asking you to update the S3 Bucket Policy. Click **Copy policy**, go back to your S3 Bucket → *Permissions* tab → *Bucket Policy* → Paste the JSON block there and save. If you skip this step, CloudFront will throw a 403 Access Denied error.
 
 
 
@@ -96,4 +96,4 @@ aws s3 sync dist/ s3://<your-bucket-name> --delete
 ```
 *(The `--delete` flag removes obsolete files on S3 that no longer exist in your local `dist` folder, keeping the bucket clean).*
 
-🎉 **Done!** You can now copy the **Distribution domain name** (e.g., `d21mxs1a....cloudfront.net`) from the CloudFront Console, paste it into your browser, and experience your NaturEra Green Banking app running live on AWS!
+**Done!** You can now copy the **Distribution domain name** (e.g., `d21mxs1a....cloudfront.net`) from the CloudFront Console, paste it into your browser, and experience your NaturEra Green Banking app running live on AWS!
