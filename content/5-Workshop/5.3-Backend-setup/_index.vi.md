@@ -16,15 +16,15 @@ cd naturEra-green-banking-web
 backend/
 ├── events/                   # Chứa các file .json giả lập request để test local
 ├── functions/                # Tầng Handler (Entrypoints)
-│   ├── dashboard/            # Lambda: Xử lý API GET /dashboard
-│   ├── get-profile/          # Lambda: Xử lý API GET /profile
-│   └── process-transaction/  # Lambda: Xử lý API POST /transactions
+|   ├── dashboard/            # Lambda: Xử lý API GET /dashboard
+|   ├── get-profile/          # Lambda: Xử lý API GET /profile
+|   └── process-transaction/  # Lambda: Xử lý API POST /transactions
 ├── src/                      # Tầng Business Logic & Database (Dùng chung)
-│   ├── configs/              # Cấu hình môi trường, hằng số
-│   ├── models/               # Định nghĩa cấu trúc dữ liệu
-│   ├── repositories/         # Tầng giao tiếp DynamoDB (Data Access)
-│   ├── services/             # Tầng nghiệp vụ (Tính điểm CO2, trừ tiền...)
-│   └── utils/                # Các hàm hỗ trợ (Format response, CORS...)
+|   ├── configs/              # Cấu hình môi trường, hằng số
+|   ├── models/               # Định nghĩa cấu trúc dữ liệu
+|   ├── repositories/         # Tầng giao tiếp DynamoDB (Data Access)
+|   ├── services/             # Tầng nghiệp vụ (Tính điểm CO2, trừ tiền...)
+|   └── utils/                # Các hàm hỗ trợ (Format response, CORS...)
 ├── scripts/                  # Chứa file script (VD: seed-data.js)
 ├── template.yaml             # Trái tim của SAM: Định nghĩa toàn bộ hạ tầng AWS
 └── package.json              # Quản lý thư viện (aws-sdk, uuid...)

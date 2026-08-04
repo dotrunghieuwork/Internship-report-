@@ -12,25 +12,25 @@ Organisez votre site comme n'importe quel autre [projet Hugo](https://gohugo.io/
 
     content
     ├── niveau-un
-    │   ├── niveau-deux
-    │   │   ├── niveau-trois
-    │   │   │   ├── niveau-quatre
-    │   │   │   │   ├── _index.md       <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre
-    │   │   │   │   ├── page-4-a.md     <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre/page-4-a
-    │   │   │   │   ├── page-4-b.md     <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre/page-4-b
-    │   │   │   │   └── page-4-c.md     <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre/page-4-c
-    │   │   │   ├── _index.md           <-- /niveau-un/niveau-deux/niveau-trois
-    │   │   │   ├── page-3-a.md         <-- /niveau-un/niveau-deux/niveau-trois/page-3-a
-    │   │   │   ├── page-3-b.md         <-- /niveau-un/niveau-deux/niveau-trois/page-3-b
-    │   │   │   └── page-3-c.md         <-- /niveau-un/niveau-deux/niveau-trois/page-3-c
-    │   │   ├── _index.md               <-- /niveau-un/niveau-deux
-    │   │   ├── page-2-a.md             <-- /niveau-un/niveau-deux/page-2-a
-    │   │   ├── page-2-b.md             <-- /niveau-un/niveau-deux/page-2-b
-    │   │   └── page-2-c.md             <-- /niveau-un/niveau-deux/page-2-c
-    │   ├── _index.md                   <-- /niveau-un
-    │   ├── page-1-a.md                 <-- /niveau-un/page-1-a
-    │   ├── page-1-b.md                 <-- /niveau-un/page-1-b
-    │   └── page-1-c.md                 <-- /niveau-un/page-1-c
+    |   ├── niveau-deux
+    |   |   ├── niveau-trois
+    |   |   |   ├── niveau-quatre
+    |   |   |   |   ├── _index.md       <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre
+    |   |   |   |   ├── page-4-a.md     <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre/page-4-a
+    |   |   |   |   ├── page-4-b.md     <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre/page-4-b
+    |   |   |   |   └── page-4-c.md     <-- /niveau-un/niveau-deux/niveau-trois/niveau-quatre/page-4-c
+    |   |   |   ├── _index.md           <-- /niveau-un/niveau-deux/niveau-trois
+    |   |   |   ├── page-3-a.md         <-- /niveau-un/niveau-deux/niveau-trois/page-3-a
+    |   |   |   ├── page-3-b.md         <-- /niveau-un/niveau-deux/niveau-trois/page-3-b
+    |   |   |   └── page-3-c.md         <-- /niveau-un/niveau-deux/niveau-trois/page-3-c
+    |   |   ├── _index.md               <-- /niveau-un/niveau-deux
+    |   |   ├── page-2-a.md             <-- /niveau-un/niveau-deux/page-2-a
+    |   |   ├── page-2-b.md             <-- /niveau-un/niveau-deux/page-2-b
+    |   |   └── page-2-c.md             <-- /niveau-un/niveau-deux/page-2-c
+    |   ├── _index.md                   <-- /niveau-un
+    |   ├── page-1-a.md                 <-- /niveau-un/page-1-a
+    |   ├── page-1-b.md                 <-- /niveau-un/page-1-b
+    |   └── page-1-c.md                 <-- /niveau-un/page-1-c
     ├── _index.md                       <-- /
     └── premiere-page.md                <-- /premiere-page
 
