@@ -127,14 +127,14 @@ captionpos=b,
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
 
 \thesislayout
-
-\begin{document}
-% Khai báo các ký tự Unicode vẽ sơ đồ
 \DeclareUnicodeCharacter{2502}{|}
 \DeclareUnicodeCharacter{251C}{+}
 \DeclareUnicodeCharacter{2500}{-}
 \DeclareUnicodeCharacter{2514}{\textbackslash}
 \usepackage{xurl}
+\begin{document}
+% Khai báo các ký tự Unicode vẽ sơ đồ
+
 \begin{titlepage}
 \begin{tikzpicture}[remember picture, overlay]
   \draw[line width = 4pt] ($(current page.north west) + (0.4in,-0.5in)$) rectangle ($(current page.south east) + (-0.4in,0.5in)$);
