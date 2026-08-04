@@ -1,81 +1,80 @@
 ---
-title : "Giới thiệu"
+title : "Introduction"
 date : 2024-01-01 
-weight : 1
+weight : 1 
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về NaturEra Green Banking
+#### About NaturEra Green Banking
 
-**NaturEra** là module Green Banking mở rộng trên nền tảng AWS Serverless, tích hợp vào luồng giao dịch POS của ngân hàng. Mỗi lần khách hàng quẹt thẻ, hệ thống tự động:
+**NaturEra** is a Green Banking module on AWS Serverless that plugs into the bank POS transaction flow. On every card swipe, the system:
 
-1. Tra cứu hệ số phát thải theo mã **MCC** của merchant
-2. Tính lượng **CO2** tương ứng với số tiền giao dịch
-3. Trừ tiền + ghi lịch sử giao dịch + cộng dồn CO2 tháng trong **một lệnh atomic** (`TransactWriteItems`)
-4. Khóa thẻ ngay khi vượt hạn mức carbon tháng (giao dịch vượt ngưỡng vẫn được phép; giao dịch tiếp theo bị chặn)
+1. Looks up the emission factor by merchant **MCC**
+2. Calculates **CO2** for the transaction amount
+3. Debits the balance, writes the transaction log, and accumulates monthly CO2 in a single atomic **`TransactWriteItems`**
+4. Locks the card when the monthly carbon quota is exceeded (the overflowing transaction is still allowed; the next one is blocked)
 
-Khách hàng theo dõi hồ sơ môi trường và biểu đồ carbon qua web app; nhân viên ngân hàng (role ADMIN) cập nhật hệ số CO2 / mapping MCC mà không cần deploy lại hệ thống. Cuối mỗi tháng, job batch tự động mở khóa thẻ và xét thưởng cho người dùng phát thải thấp.
+Customers track their environmental profile and carbon charts in the web app. Bank staff (ADMIN role) update CO2 factors / MCC mappings without redeploying. At the start of each month, a batch job unlocks cards and rewards low-emission users.
 
 {{% notice info %}}
-Workshop này hướng dẫn bạn **triển khai MVP NaturEra** (backend SAM + frontend React/Vite), seed dữ liệu demo, gọi API giao dịch POS và dọn dẹp tài nguyên sau lab.
+This workshop walks you through deploying the **NaturEra MVP** (SAM backend + React/Vite frontend), seeding demo data, calling the POS transaction API, and cleaning up resources afterward.
 {{% /notice %}}
 
-#### Tổng quan về workshop
+#### Workshop overview
 
-Trong workshop, bạn sẽ:
+In this workshop you will:
 
-+ Triển khai stack serverless bằng **AWS SAM** (Lambda, API Gateway, DynamoDB, Cognito, EventBridge, S3, CloudFront)
-+ Cấu hình frontend React/Vite kết nối Cognito + API Gateway
-+ Giả lập giao dịch quẹt thẻ POS (`POST /v1/transactions` với `x-api-key`)
-+ Kiểm tra cộng dồn CO2, khóa thẻ real-time và dữ liệu trên DynamoDB / Dashboard
++ Deploy the serverless stack with **AWS SAM** (Lambda, API Gateway, DynamoDB, Cognito, EventBridge, S3, CloudFront)
++ Configure the React/Vite frontend against Cognito + API Gateway
++ Simulate POS card swipes (`POST /v1/transactions` with `x-api-key`)
++ Verify CO2 accumulation, real-time card lock, and data in DynamoDB / Dashboard
 
-<img src="/Internship-report-/images/5-Workshop/5.1-Workshop-overview/naturera_architecture.jpg" width="80%" />
+![NaturEra Architecture](/fcaj-intership-report-workshop/images/2-Proposal/naturera_architecture.jpg)
 
-#### Tóm tắt kiến trúc
+#### Architecture summary
 
-Nền tảng áp dụng kiến trúc **AWS-native serverless** hoàn toàn:
+The platform is fully **AWS-native serverless**:
 
-| Thành phần | Vai trò trong workshop |
+| Component | Role in the workshop |
 | :--- | :--- |
-| **Amazon Cognito** | User Pool + App Client; JWT authorizer cho API khách hàng / admin (`custom:role`) |
-| **Amazon API Gateway** | REST API stage `v1`; Cognito Authorizer (mặc định) + API Key cho endpoint POS |
-| **AWS Lambda** | 5 hàm core xử lý nghiệp vụ (xem bảng bên dưới) |
-| **Amazon DynamoDB** | Single-table `NaturEraGreenBankingTable` + 2 GSI (`StatMonthIndex`, `LockedCardIndex`) |
-| **Amazon EventBridge** | Lịch cron ngày 1 hàng tháng kích hoạt Monthly Offset Batch |
-| **Amazon S3 + CloudFront** | Host frontend tĩnh (React/Vite build) qua OAC |
-| **AWS SAM / CloudFormation** | Đóng gói và triển khai toàn bộ stack |
+| **Amazon Cognito** | User Pool + App Client; JWT authorizer for customer/admin APIs (`custom:role`) |
+| **Amazon API Gateway** | REST API stage `v1`; Cognito Authorizer (default) + API Key for the POS endpoint |
+| **AWS Lambda** | Five core functions (see table below) |
+| **Amazon DynamoDB** | Single-table `NaturEraGreenBankingTable` + 2 GSIs (`StatMonthIndex`, `LockedCardIndex`) |
+| **Amazon EventBridge** | Cron on the 1st of each month triggers Monthly Offset Batch |
+| **Amazon S3 + CloudFront** | Host the static frontend (React/Vite build) via OAC |
+| **AWS SAM / CloudFormation** | Package and deploy the full stack |
 
-**Luồng nghiệp vụ chính (POS → carbon):**
+**Main business flow (POS → carbon):**
 
 ```
 POS Simulator  --(x-api-key)-->  API Gateway  -->  TransactionInterceptor Lambda
                                                         │
-                                                        ▼
                                               DynamoDB TransactWriteItems
                                               (PROFILE + CARD check + TXN + STAT)
                                                         │
-                                              nếu CO2 >= quota → LOCK card
+                                              if CO2 >= quota → LOCK card
 ```
 
-**Các quyết định kiến trúc đáng nhớ (ADR):**
+**Key architecture decisions (ADRs):**
 
-+ **ADR-001** — Core Banking ghi atomic bằng `TransactWriteItems` (không dùng Saga/Step Functions)
-+ **ADR-002** — IAM least-privilege: không cấp `dynamodb:Scan`; truy vấn nhiều user qua GSI + `Query`
-+ **ADR-003** — Khóa thẻ real-time khi vượt hạn mức (giọt nước tràn ly: giao dịch vượt ngưỡng vẫn thành công)
++ **ADR-001** — Atomic Core Banking writes with `TransactWriteItems` (no Saga/Step Functions)
++ **ADR-002** — Least-privilege IAM: no `dynamodb:Scan`; multi-user reads via GSI + `Query`
++ **ADR-003** — Real-time card lock on quota breach (overflow drop allowed)
 
-Backend tổ chức **4 lớp**: `functions/` → `services/` → `repositories/` → `models/` + `utils/` + `configs/`.
+Backend layering: `functions/` → `services/` → `repositories/` → `models/` + `utils/` + `configs/`.
 
-#### Các hàm Lambda core
+#### Core Lambda functions
 
-| Lambda | Trigger / Route | Chức năng |
+| Lambda | Trigger / Route | Responsibility |
 | :--- | :--- | :--- |
-| **TransactionInterceptor** | `POST /v1/transactions` (Auth: **NONE** + **API Key**) | Nhận giao dịch POS, tính CO2 theo MCC, trừ tiền + ghi log + cộng dồn STAT trong 1 `TransactWriteItems`; khóa thẻ nếu vượt quota |
-| **DashboardApi** | `GET /v1/dashboard` (Cognito) | Trả thống kê carbon tháng + giao dịch gần nhất cho UI khách hàng |
-| **GreenProfileCardApi** | `GET /v1/profile/{requestId}` (Cognito) | Xem hồ sơ môi trường / trạng thái thẻ; phân quyền theo `custom:role` |
-| **AdminRuleConfigApi** | `GET\|PUT /v1/admin/config/co2-rules`<br>`GET\|PUT /v1/admin/config/mcc-mapping` (Cognito + role ADMIN) | Đọc/cập nhật hệ số CO2 và từ điển mapping MCC (`CONFIG#*`) không cần redeploy |
-| **MonthlyOffsetBatch** | EventBridge `cron(0 0 1 * ? *)` | Đầu tháng: mở khóa toàn bộ thẻ LOCKED + xét thưởng user dưới ngưỡng `REWARD_THRESHOLD` (Query GSI, không Scan) |
+| **TransactionInterceptor** | `POST /v1/transactions` (Auth: **NONE** + **API Key**) | Ingest POS txn, compute CO2 by MCC, debit + log + accumulate STAT in one `TransactWriteItems`; lock card if over quota |
+| **DashboardApi** | `GET /v1/dashboard` (Cognito) | Return monthly carbon stats + recent transactions for the customer UI |
+| **GreenProfileCardApi** | `GET /v1/profile/{requestId}` (Cognito) | Environmental profile / card status; authorize by `custom:role` |
+| **AdminRuleConfigApi** | `GET\|PUT /v1/admin/config/co2-rules`<br>`GET\|PUT /v1/admin/config/mcc-mapping` (Cognito + ADMIN) | Read/update CO2 rules and MCC mapping (`CONFIG#*`) without redeploy |
+| **MonthlyOffsetBatch** | EventBridge `cron(0 0 1 * ? *)` | Month start: unlock LOCKED cards + reward users under `REWARD_THRESHOLD` (GSI Query, no Scan) |
 
 {{% notice tip %}}
-Endpoint POS dùng **API Key** (máy-to-máy), còn Dashboard / Profile / Admin dùng **JWT Cognito**. Đây là điểm cần nắm khi test API ở phần sau của workshop.
+The POS endpoint uses an **API Key** (machine-to-machine). Dashboard / Profile / Admin use **Cognito JWT**. Keep this distinction in mind when you test APIs later in the workshop.
 {{% /notice %}}
