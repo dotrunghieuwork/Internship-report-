@@ -51,7 +51,7 @@ Sau khi có nơi lưu trữ, chúng ta cần một "cánh cửa" CDN để phân
 5. **Web Application Firewall (WAF)**: Chọn *Do not enable security protections* (để tiết kiệm chi phí cho môi trường Dev).
 6. Nhấn **Create distribution**.
 
-> ⚠️ **QUAN TRỌNG:** Sau khi tạo xong, CloudFront sẽ hiện một cảnh báo màu vàng yêu cầu cập nhật S3 Bucket Policy. Hãy nhấn **Copy policy**, quay lại S3 Bucket → tab *Permissions* → *Bucket Policy* → Dán đoạn JSON đó vào và lưu lại. Nếu bỏ qua bước này, CloudFront sẽ bị lỗi 403 Access Denied.
+> **QUAN TRỌNG:** Sau khi tạo xong, CloudFront sẽ hiện một cảnh báo màu vàng yêu cầu cập nhật S3 Bucket Policy. Hãy nhấn **Copy policy**, quay lại S3 Bucket → tab *Permissions* → *Bucket Policy* → Dán đoạn JSON đó vào và lưu lại. Nếu bỏ qua bước này, CloudFront sẽ bị lỗi 403 Access Denied.
 
 
 **2.2. Cấu hình Custom Error Responses (Fix lỗi F5 của React SPA)**
@@ -95,4 +95,4 @@ aws s3 sync dist/ s3://<tên-bucket-của-bạn> --delete
 ```
 *(Tham số `--delete` giúp xóa các file cũ trên S3 không còn tồn tại trong thư mục `dist` nội bộ, giữ cho Bucket luôn sạch sẽ).*
 
-🎉 **Hoàn tất!** Bây giờ bạn có thể lấy **Distribution domain name** (VD: `d21mxs1a....cloudfront.net`) từ CloudFront Console, dán vào trình duyệt và chiêm ngưỡng ứng dụng NaturEra Green Banking của mình đang chạy trực tiếp trên AWS!
+**Hoàn tất!** Bây giờ bạn có thể lấy **Distribution domain name** (VD: `d21mxs1a....cloudfront.net`) từ CloudFront Console, dán vào trình duyệt và chiêm ngưỡng ứng dụng NaturEra Green Banking của mình đang chạy trực tiếp trên AWS!

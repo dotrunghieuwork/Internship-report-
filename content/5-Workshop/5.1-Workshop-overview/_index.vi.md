@@ -11,11 +11,11 @@ pre : " <b> 5.1. </b> "
 **NaturEra** là module Green Banking mở rộng trên nền tảng AWS Serverless, tích hợp vào luồng giao dịch POS của ngân hàng. Mỗi lần khách hàng quẹt thẻ, hệ thống tự động:
 
 1. Tra cứu hệ số phát thải theo mã **MCC** của merchant
-2. Tính lượng **CO₂** tương ứng với số tiền giao dịch
-3. Trừ tiền + ghi lịch sử giao dịch + cộng dồn CO₂ tháng trong **một lệnh atomic** (`TransactWriteItems`)
+2. Tính lượng **CO2** tương ứng với số tiền giao dịch
+3. Trừ tiền + ghi lịch sử giao dịch + cộng dồn CO2 tháng trong **một lệnh atomic** (`TransactWriteItems`)
 4. Khóa thẻ ngay khi vượt hạn mức carbon tháng (giao dịch vượt ngưỡng vẫn được phép; giao dịch tiếp theo bị chặn)
 
-Khách hàng theo dõi hồ sơ môi trường và biểu đồ carbon qua web app; nhân viên ngân hàng (role ADMIN) cập nhật hệ số CO₂ / mapping MCC mà không cần deploy lại hệ thống. Cuối mỗi tháng, job batch tự động mở khóa thẻ và xét thưởng cho người dùng phát thải thấp.
+Khách hàng theo dõi hồ sơ môi trường và biểu đồ carbon qua web app; nhân viên ngân hàng (role ADMIN) cập nhật hệ số CO2 / mapping MCC mà không cần deploy lại hệ thống. Cuối mỗi tháng, job batch tự động mở khóa thẻ và xét thưởng cho người dùng phát thải thấp.
 
 {{% notice info %}}
 Workshop này hướng dẫn bạn **triển khai MVP NaturEra** (backend SAM + frontend React/Vite), seed dữ liệu demo, gọi API giao dịch POS và dọn dẹp tài nguyên sau lab.
@@ -28,7 +28,7 @@ Trong workshop, bạn sẽ:
 + Triển khai stack serverless bằng **AWS SAM** (Lambda, API Gateway, DynamoDB, Cognito, EventBridge, S3, CloudFront)
 + Cấu hình frontend React/Vite kết nối Cognito + API Gateway
 + Giả lập giao dịch quẹt thẻ POS (`POST /v1/transactions` với `x-api-key`)
-+ Kiểm tra cộng dồn CO₂, khóa thẻ real-time và dữ liệu trên DynamoDB / Dashboard
++ Kiểm tra cộng dồn CO2, khóa thẻ real-time và dữ liệu trên DynamoDB / Dashboard
 
 <img src="/Internship-report-/images/5-Workshop/5.1-Workshop-overview/naturera_architecture.jpg" width="80%" />
 
@@ -55,7 +55,7 @@ POS Simulator  --(x-api-key)-->  API Gateway  -->  TransactionInterceptor Lambda
                                               DynamoDB TransactWriteItems
                                               (PROFILE + CARD check + TXN + STAT)
                                                         │
-                                              nếu CO₂ >= quota → LOCK card
+                                              nếu CO2 >= quota → LOCK card
 ```
 
 **Các quyết định kiến trúc đáng nhớ (ADR):**
@@ -70,10 +70,10 @@ Backend tổ chức **4 lớp**: `functions/` → `services/` → `repositories/
 
 | Lambda | Trigger / Route | Chức năng |
 | :--- | :--- | :--- |
-| **TransactionInterceptor** | `POST /v1/transactions` (Auth: **NONE** + **API Key**) | Nhận giao dịch POS, tính CO₂ theo MCC, trừ tiền + ghi log + cộng dồn STAT trong 1 `TransactWriteItems`; khóa thẻ nếu vượt quota |
+| **TransactionInterceptor** | `POST /v1/transactions` (Auth: **NONE** + **API Key**) | Nhận giao dịch POS, tính CO2 theo MCC, trừ tiền + ghi log + cộng dồn STAT trong 1 `TransactWriteItems`; khóa thẻ nếu vượt quota |
 | **DashboardApi** | `GET /v1/dashboard` (Cognito) | Trả thống kê carbon tháng + giao dịch gần nhất cho UI khách hàng |
 | **GreenProfileCardApi** | `GET /v1/profile/{requestId}` (Cognito) | Xem hồ sơ môi trường / trạng thái thẻ; phân quyền theo `custom:role` |
-| **AdminRuleConfigApi** | `GET\|PUT /v1/admin/config/co2-rules`<br>`GET\|PUT /v1/admin/config/mcc-mapping` (Cognito + role ADMIN) | Đọc/cập nhật hệ số CO₂ và từ điển mapping MCC (`CONFIG#*`) không cần redeploy |
+| **AdminRuleConfigApi** | `GET\|PUT /v1/admin/config/co2-rules`<br>`GET\|PUT /v1/admin/config/mcc-mapping` (Cognito + role ADMIN) | Đọc/cập nhật hệ số CO2 và từ điển mapping MCC (`CONFIG#*`) không cần redeploy |
 | **MonthlyOffsetBatch** | EventBridge `cron(0 0 1 * ? *)` | Đầu tháng: mở khóa toàn bộ thẻ LOCKED + xét thưởng user dưới ngưỡng `REWARD_THRESHOLD` (Query GSI, không Scan) |
 
 {{% notice tip %}}

@@ -11,11 +11,11 @@ pre : " <b> 5.1. </b> "
 **NaturEra** is an extended Green Banking module built on the AWS Serverless platform, seamlessly integrated into the bank's POS transaction flow. Every time a customer swipes their card, the system automatically:
 
 1. Looks up the emission factor based on the merchant's **MCC** (Merchant Category Code).
-2. Calculates the **CO₂** equivalent corresponding to the transaction amount.
-3. Deducts the balance + logs the transaction history + accumulates the monthly CO₂ in **a single atomic operation** (`TransactWriteItems`).
+2. Calculates the **CO2** equivalent corresponding to the transaction amount.
+3. Deducts the balance + logs the transaction history + accumulates the monthly CO2 in **a single atomic operation** (`TransactWriteItems`).
 4. Locks the card immediately when the monthly carbon limit is exceeded (the transaction breaching the threshold is permitted; subsequent transactions are blocked).
 
-Customers can track their environmental profiles and carbon charts via a web app; bank staff (ADMIN role) can update CO₂ factors / MCC mappings without redeploying the system. At the end of each month, a batch job automatically unlocks cards and evaluates rewards for low-emission users.
+Customers can track their environmental profiles and carbon charts via a web app; bank staff (ADMIN role) can update CO2 factors / MCC mappings without redeploying the system. At the end of each month, a batch job automatically unlocks cards and evaluates rewards for low-emission users.
 
 {{% notice info %}}
 This workshop will guide you through **deploying the NaturEra MVP** (AWS SAM backend + React/Vite frontend), seeding demo data, invoking the POS transaction API, and cleaning up resources after the lab.
@@ -28,7 +28,7 @@ In this workshop, you will:
 + Deploy a serverless stack using **AWS SAM** (Lambda, API Gateway, DynamoDB, Cognito, EventBridge, S3, CloudFront).
 + Configure the React/Vite frontend to connect with Cognito + API Gateway.
 + Simulate a POS card swipe transaction (`POST /v1/transactions` using an `x-api-key`).
-+ Verify CO₂ accumulation, real-time card locking, and data updates on DynamoDB / Dashboard.
++ Verify CO2 accumulation, real-time card locking, and data updates on DynamoDB / Dashboard.
 
 <img src="/Internship-report-/images/5-Workshop/5.1-Workshop-overview/naturera_architecture.jpg" width="80%" />
 
